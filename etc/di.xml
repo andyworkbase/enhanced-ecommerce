@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author andy
+ * @email andyworkbase@gmail.com
+ * @team MageCloud
+ * @package MageCloud_EnhancedEcommerce
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="MageCloud\EnhancedEcommerce\Model\EventResolverProvider">
+        <arguments>
+            <argument name="eventResolvers" xsi:type="array">
+                <item name="view_item_list" xsi:type="object">MageCloud\EnhancedEcommerce\Model\EventResolver\ViewItemList</item>
+                <item name="view_item" xsi:type="object">MageCloud\EnhancedEcommerce\Model\EventResolver\ViewItem</item>
+                <item name="add_to_cart" xsi:type="object">MageCloud\EnhancedEcommerce\Model\EventResolver\AddToCart</item>
+                <item name="remove_from_cart" xsi:type="object">MageCloud\EnhancedEcommerce\Model\EventResolver\RemoveFromCart</item>
+                <item name="view_cart" xsi:type="object">MageCloud\EnhancedEcommerce\Model\EventResolver\ViewCart</item>
+                <item name="add_shipping_info" xsi:type="object">MageCloud\EnhancedEcommerce\Model\EventResolver\AddShippingInfo</item>
+                <item name="add_payment_info" xsi:type="object">MageCloud\EnhancedEcommerce\Model\EventResolver\AddPaymentInfo</item>
+                <item name="begin_checkout" xsi:type="object">MageCloud\EnhancedEcommerce\Model\EventResolver\BeginCheckout</item>
+                <item name="purchase" xsi:type="object">MageCloud\EnhancedEcommerce\Model\EventResolver\Purchase</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="MageCloud\EnhancedEcommerce\Model\Config\Source\Product\Attributes\Identifier"
+                 type="MageCloud\EnhancedEcommerce\Model\Config\Source\Product\Attributes">
+        <arguments>
+            <argument name="addEntityId" xsi:type="boolean">true</argument>
+        </arguments>
+    </virtualType>
+    <type name="MageCloud\EnhancedEcommerce\Model\ResourceModel\ResourceManager\Product">
+        <arguments>
+            <argument name="entityType" xsi:type="string">Magento\Catalog\Api\Data\ProductInterface</argument>
+        </arguments>
+    </type>
+    <type name="MageCloud\EnhancedEcommerce\Model\ResourceModel\ResourceManager\Category">
+        <arguments>
+            <argument name="entityType" xsi:type="string">Magento\Catalog\Api\Data\CategoryInterface</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Quote\Model\Quote\Config">
+        <plugin name="magecloud_enhanced_ecommerce_quote_config"
+                type="MageCloud\EnhancedEcommerce\Plugin\Quote\Model\Config"
+                sortOrder="10"/>
+    </type>
+    <!-- Dynamic events -->
+    <type name="Magento\Checkout\Model\ShippingInformationManagement">
+        <plugin name="magecloud_enhanced_ecommerce_shipping_information_management"
+                type="MageCloud\EnhancedEcommerce\Plugin\Checkout\Model\ShippingInformationManagement"
+                sortOrder="10"/>
+    </type>
+    <type name="Magento\Checkout\Model\PaymentInformationManagement">
+        <plugin name="magecloud_enhanced_ecommerce_payment_information_management"
+                type="MageCloud\EnhancedEcommerce\Plugin\Checkout\Model\PaymentInformationManagement"
+                sortOrder="10"/>
+    </type>
+    <type name="Magento\Checkout\Model\GuestPaymentInformationManagement">
+        <plugin name="magecloud_enhanced_ecommerce_guest_payment_information_management"
+                type="MageCloud\EnhancedEcommerce\Plugin\Checkout\Model\GuestPaymentInformationManagement"
+                sortOrder="10"/>
+    </type>
+    <!-- END: Dynamic events -->
+
+    <!-- Event session -->
+    <virtualType name="MageCloudEventSessionStorage" type="Magento\Framework\Session\Storage">
+        <arguments>
+            <argument name="namespace" xsi:type="string">magecloud_datalayer</argument>
+        </arguments>
+    </virtualType>
+    <type name="MageCloud\EnhancedEcommerce\Model\EventSession">
+        <arguments>
+            <argument name="storage" xsi:type="object">MageCloudEventSessionStorage</argument>
+        </arguments>
+    </type>
+    <!-- END: Event session -->
+</config>

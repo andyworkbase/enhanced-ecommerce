@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author andy
+ * @email andyworkbase@gmail.com
+ * @team MageCloud
+ * @package MageCloud_EnhancedEcommerce
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <magecloud_enhanced_ecommerce>
+            <general>
+                <enabled>0</enabled>
+                <gtm_code></gtm_code>
+                <gtm_noscript_code></gtm_noscript_code>
+                <available_events>all</available_events>
+            </general>
+            <product_settings>
+                <product_identifier>sku</product_identifier>
+                <brand_attribute></brand_attribute>
+            </product_settings>
+            <checkout_settings>
+                <order_total>grand_total</order_total>
+                <deduct_tax_from_grand_total>0</deduct_tax_from_grand_total>
+                <include_tax>1</include_tax>
+                <include_shipping>1</include_shipping>
+            </checkout_settings>
+        </magecloud_enhanced_ecommerce>
+    </default>
+</config>

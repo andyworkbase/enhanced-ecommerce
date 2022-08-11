@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author andy
+ * @email andyworkbase@gmail.com
+ * @team MageCloud
+ * @package MageCloud_EnhancedEcommerce
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="checkout_cart_product_add_after">
+        <observer name="magecloud_enhanced_ecommerce_datalayer_collect_checkout_cart_add_product_complete"
+                  instance="MageCloud\EnhancedEcommerce\Observer\CheckoutCartAddProductAfterObserver" />
+    </event>
+    <event name="sales_quote_remove_item">
+        <observer name="magecloud_enhanced_ecommerce_datalayer_collect_sales_quote_remove_item"
+                  instance="MageCloud\EnhancedEcommerce\Observer\SalesQuoteRemoveItemObserver" />
+    </event>
+</config>

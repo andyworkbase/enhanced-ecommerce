@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author andy
+ * @email andyworkbase@gmail.com
+ * @team MageCloud
+ * @package MageCloud_EnhancedEcommerce
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="after.body.start">
+            <block class="MageCloud\EnhancedEcommerce\Block\Catalog\Product\ViewItem"
+                   name="magecloud.enhanced.ecommerce.catalog.product.view-item">
+                <arguments>
+                    <argument name="viewModel" xsi:type="object">DataLayerViewModelViewItem</argument>
+                    <argument name="itemListName" xsi:type="const">MageCloud\EnhancedEcommerce\Model\EventResolver\ViewItemList::ITEM_LIST_CATEGORY</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

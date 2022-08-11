@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author andy
+ * @email andyworkbase@gmail.com
+ * @team MageCloud
+ * @package MageCloud_EnhancedEcommerce
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="head.additional">
+            <block ifconfig="magecloud_enhanced_ecommerce/general/enabled"
+                   class="MageCloud\EnhancedEcommerce\Block\GtmCode"
+                   name="magecloud.enhanced.ecommerce.gtm-code"
+                   template="MageCloud_EnhancedEcommerce::gtm-code.phtml"
+                   before="-"/>
+        </referenceBlock>
+        <referenceContainer name="after.body.start">
+            <block ifconfig="magecloud_enhanced_ecommerce/general/enabled"
+                   class="MageCloud\EnhancedEcommerce\Block\GtmCode"
+                   name="magecloud.enhanced.ecommerce.gtm-noscript-code"
+                   template="MageCloud_EnhancedEcommerce::gtm-noscript-code.phtml"
+                   before="-"/>
+            <block class="Magento\Framework\View\Element\Template"
+                   name="magecloud.enhanced.ecommerce.data-layer-render"
+                   template="MageCloud_EnhancedEcommerce::data-layer.phtml"
+                   before="-">
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="magecloudDataLayerSubscribe" xsi:type="array">
+                                <item name="component" xsi:type="string">MageCloud_EnhancedEcommerce/js/data-layer</item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
