@@ -70,9 +70,6 @@ class BeginCheckout extends AbstractEventResolver implements EventResolverInterf
     protected function initEventData(Store $store = null, $eventArguments = null): void
     {
         $cartId = $eventArguments['cart_id'] ?? null;
-        if (!$cartId) {
-            return;
-        }
         $masked = $eventArguments['masked_cart_id'] ?? null;
         if (!$quote = $this->initQuote($cartId, $masked)) {
             return;
@@ -125,6 +122,6 @@ class BeginCheckout extends AbstractEventResolver implements EventResolverInterf
         } catch (\Exception $e) {
             // omit exception
         }
-        return $this->renderEventData($eventType);
+        return $this->renderEventData($eventType, true);
     }
 }

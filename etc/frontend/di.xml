@@ -30,6 +30,11 @@
             <argument name="eventType" xsi:type="const">MageCloud\EnhancedEcommerce\Model\EventResolver\ViewCart::EVENT_TYPE</argument>
         </arguments>
     </virtualType>
+    <virtualType name="DataLayerViewModelBeginCheckout" type="MageCloud\EnhancedEcommerce\ViewModel\DataLayerViewModel">
+        <arguments>
+            <argument name="eventType" xsi:type="const">MageCloud\EnhancedEcommerce\Model\EventResolver\BeginCheckout::EVENT_TYPE</argument>
+        </arguments>
+    </virtualType>
     <virtualType name="DataLayerViewModelPurchase" type="MageCloud\EnhancedEcommerce\ViewModel\DataLayerViewModel">
         <arguments>
             <argument name="eventType" xsi:type="const">MageCloud\EnhancedEcommerce\Model\EventResolver\Purchase::EVENT_TYPE</argument>
