@@ -50,13 +50,19 @@ class ViewItemList extends ListProduct
      */
     public function toHtml()
     {
+        $collection = null;
+        /** @var \Magento\Catalog\Block\Product\ListProduct $categoryProductListBlock */
+        $categoryProductListBlock = $this->_layout->getBlock('category.products.list');
+        if ($categoryProductListBlock) {
+            $categoryProductListBlock->toHtml();
+            $collection = $categoryProductListBlock->getLoadedProductCollection();
+        }
+
         /** @var DataLayerViewModel $viewModel */
         $viewModel = $this->getData('viewModel');
         $eventArguments = [
             'store' => $this->_storeManager->getStore(),
-            // sometimes, on older versions, method getLoadedProductCollection() throws an error,
-            // so retrieve product collection from the current layer
-            'collection' => $this->prepareCollection($this->getLayer()->getProductCollection()),
+            'collection' => $collection ? $this->prepareCollection($collection) : null,
             'item_list_name' => $this->getData('itemListName')
         ];
         return $viewModel->execute($eventArguments);
