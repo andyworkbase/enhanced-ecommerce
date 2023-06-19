@@ -15,7 +15,7 @@
                 <arguments>
                     <argument name="viewModel" xsi:type="object">DataLayerViewModelViewItemList</argument>
                     <argument name="itemListName" xsi:type="const">MageCloud\EnhancedEcommerce\Model\EventResolver\ViewItemList::ITEM_LIST_SEARCH_RESULTS</argument>
-                    <argument name="product_list_block_name" xsi:type="string">search_result_list</argument>
+                    <argument name="productListBlockName" xsi:type="string">search_result_list</argument>
                 </arguments>
             </block>
         </referenceBlock>

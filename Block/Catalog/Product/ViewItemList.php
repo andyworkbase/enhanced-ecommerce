@@ -52,7 +52,7 @@ class ViewItemList extends ListProduct
     {
         $collection = null;
         /** @var \Magento\Catalog\Block\Product\ListProduct $categoryProductListBlock */
-        $categoryProductListBlock = $this->_layout->getBlock($this->getData('product_list_block_name'));
+        $categoryProductListBlock = $this->_layout->getBlock($this->getData('productListBlockName'));
         if ($categoryProductListBlock) {
             $categoryProductListBlock->toHtml();
             $collection = $categoryProductListBlock->getLoadedProductCollection();
