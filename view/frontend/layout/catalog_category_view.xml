@@ -14,6 +14,7 @@
                    name="magecloud.enhanced.ecommerce.catalog.product.view-item-list">
                 <arguments>
                     <argument name="viewModel" xsi:type="object">DataLayerViewModelViewItemList</argument>
+                    <argument name="productListBlockName" xsi:type="string">category.products.list</argument>
                 </arguments>
             </block>
         </referenceBlock>
